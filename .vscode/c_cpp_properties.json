@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "d:/Workspace VS code/C++/include",
+                "${workspaceFolder}/src/Apriori/Apriori/src"
+            ],
+            "cStandard": "c17",
+            "cppStandard": "gnu++14",
+            "intelliSenseMode": "windows-gcc-x64",
+            "defines": [],
+            "compileCommands": [
+                "d:\\Workspace VS code\\C++/compile_commands.json"
+            ],
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "d:/Workspace VS code/C++/include",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
+        }
+    ],
+    "version": 4
+}
