@@ -1,0 +1,52 @@
+# Ignore bin directory and all its contents
+bin/
+bin/*
+
+# Ignore all executable files
+*.exe
+*.out
+*.app
+
+# Ignore object files
+*.o
+*.obj
+
+# Ignore library files
+*.a
+*.lib
+*.so
+*.dll
+*.dylib
+
+# Ignore debug files
+*.pdb
+*.ilk
+
+# Ignore IDE/Editor files
+.vscode/
+.vs/
+*.vcxproj.user
+*.sln.docstates
+
+# Ignore temporary files
+*.tmp
+*.temp
+*~
+
+# Ignore log files
+*.log
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Ignore compiler generated files
+*.i
+*.ii
+*.s
+*.bc
