@@ -57,6 +57,68 @@ void ex3(){
 }
 
 
+void ex4(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    int *p = arr; // Khởi tạo con trỏ p trỏ đến mảng arr
+
+    printf("value of address arr stored in p: %d\n", *p); // In giá trị tại địa chỉ mà p trỏ đến (phần tử đầu tiên của mảng arr)
+
+    p+=1; // Di chuyển con trỏ p đến phần tử tiếp theo trong mảng arr
+    printf("value of address arr stored in p: %d\n", *p); // In giá trị tại địa chỉ mà p trỏ đến (phần tử thứ hai của mảng arr)
+}
+
+
+void ex5(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    for(int *p = arr; p < arr + sizeof(arr)/sizeof(arr[0]); p++) {
+        printf("value of address arr stored in p: %d\n", *p); // In giá trị tại địa chỉ mà p trỏ đến
+        printf("Address stored in p: %d\n", (void*)p); // In địa chỉ mà p đang trỏ đến
+    }   
+    printf("\n");
+}
+
+void ex6(){
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+
+    unsigned char *p;
+    for(p = (unsigned char*)arr; p < (unsigned char*)arr + sizeof(arr); p++) {
+        printf("%02x ", *p); // In giá trị từng byte của mảng arr
+    }
+    printf("\n");
+}
+
+
+void ex7(){
+    // con trở, trở tới mảng có thể truy cập phần từ bằng index dấu ngoặc vuông
+    int arr[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int *p = arr; // Khởi tạo con trỏ p trỏ đến mảng arr
+    for(int i = 0; i < sizeof(arr)/sizeof(arr[0]); i++) {
+        printf("value of address arr stored in p: %d\n", p[i]); // In giá trị tại địa chỉ mà p trỏ đến (phần tử thứ i của mảng arr)
+        printf("Address stored in p: %p\n", (void*)(p + i)); // In địa chỉ mà p đang trỏ đến
+    }
+}
+void ex8(){
+    // con trở, trở tới mảng có thể truy cập phần từ bằng index dấu ngoặc vuông
+    unsigned char arr[] = {0x01, 0x02, 0x03, 0x04, 0x05, 0x06, 0x07, 0x08, 0x09, 0x0A};
+    unsigned char *p = arr; // Khởi tạo con trỏ p trỏ đến mảng arr
+    *p += 10;
+    printf("value of address arr stored in p: %02x\n", *p); // In giá trị tại địa chỉ mà p trỏ đến (phần tử đầu tiên của mảng arr)
+
+}
+
+void changeValue(int *p){
+    *p = 100; // Thay đổi giá trị tại địa chỉ mà p trỏ đến
+}
+
+void ex9(){
+    int x = 10;
+    printf("Before change: %d\n", x); // In giá trị ban đầu của x
+    changeValue(&x); // Gọi hàm để thay đổi giá trị của x thông qua con trỏ
+    printf("After change: %d\n", x); // In giá trị sau khi thay đổi
+}
+
 
 int main(int argc, char const *argv[])
 {
@@ -65,7 +127,14 @@ int main(int argc, char const *argv[])
 
     // ex1();
     // ex2();
-    ex3();
+    // ex3();
+    // ex4();
+    // ex5();
+    // ex6();
+    // ex7();
+    // ex8();
+    // ex9();
+
 
     
 
