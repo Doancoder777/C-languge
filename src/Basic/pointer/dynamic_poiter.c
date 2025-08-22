@@ -114,14 +114,17 @@ gọi free(pt) hoặc chương trình kết thúc.
 
 void cap_phat_5(int **p)
 {
-    *p = calloc(10, sizeof(int)); // Cấp phát bộ nhớ cho mảng 10 phần tử
+    *p = calloc(10, sizeof(int));
     if (*p == NULL) {
         printf("Memory allocation failed\n");
-        exit(1); // Thoát chương trình nếu cấp phát thất bại
+        exit(1); 
     }
-    printf("address of p: %p\n", (void*)*p); // In địa chỉ của con trỏ p
+    printf("address of p: %p\n", (void*)*p); 
 }
 
+
+
+//https://drive.google.com/file/d/14Pv9sp_3IZJPbdj-DV_pp54y30LFFcHj/view?usp=sharing
 void ex5(){
     int *pt;
     cap_phat_5(&pt); // Gọi hàm để cấp phát bộ nhớ cho con trỏ pt
@@ -132,6 +135,7 @@ void ex5(){
     free(pt); // Giải phóng bộ nhớ heap
     pt = NULL; // Tránh dangling pointer
 }
+
 
 /*
 ex5() là cách ĐÚNG để cấp phát bộ nhớ thông qua hàm!
@@ -154,7 +158,8 @@ thông qua tham số hàm bằng cách dùng con trỏ đến con trỏ.
 
 int main(int argc, char const *argv[])
 {
-    ex4();
+    ex1();
+    // ex4();
     
     getchar();
     return 0;
