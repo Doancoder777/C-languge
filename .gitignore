@@ -19,6 +19,7 @@ bin/*
 *.dylib
 
 # Ignore debug files
+
 *.pdb
 *.ilk
 
@@ -49,4 +50,6 @@ Thumbs.db
 *.i
 *.ii
 *.s
-*.bc
+*.bc.vscode/
+.vscode/
+.vscode/

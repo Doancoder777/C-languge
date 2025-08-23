@@ -2,39 +2,48 @@
 #include<string.h>
 
 // Exercise 1: Write a program to input a 2D array. Find min/max elements of the array.
+void input_array(int m, int n, int arr[m][n]) {
+    printf("Enter array elements:\n");
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("arr[%d][%d] = ", i, j);
+            scanf("%d", &arr[i][j]);
+        }
+    }
+}
+
+void output_array(int m, int n, int arr[m][n]) {
+    printf("Array:\n");
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 void ex1(){
     int m, n;
     printf("Enter number of rows: ");
     scanf("%d", &m);
     printf("Enter number of columns: ");
     scanf("%d", &n);
-    
+
     int arr[m][n];
-    
-    // Input array
-    printf("Enter array elements:\n");
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            printf("arr[%d][%d] = ", i, j);
-            scanf("%d", &arr[i][j]);
-        }
-    }
-    
-    // Find min and max
+
+    input_array(m, n, arr);
+
     int min = arr[0][0];
     int max = arr[0][0];
-    
+
     for(int i = 0; i < m; i++){
         for(int j = 0; j < n; j++){
-            if(arr[i][j] < min){
-                min = arr[i][j]; // Update minimum value
-            }
-            if(arr[i][j] > max){
-                max = arr[i][j]; // Update maximum value
-            }
+            if(arr[i][j] < min) min = arr[i][j];
+            if(arr[i][j] > max) max = arr[i][j];
         }
     }
-    
+
+    output_array(m, n, arr);
     printf("Minimum element: %d\n", min);
     printf("Maximum element: %d\n", max);
 }
@@ -96,41 +105,35 @@ void ex2(){
 }
 
 // Exercise 3: For 2D array, write function to cut any odd row in the 2D array.
+
+void cut_row(char log[][50], int index_row_cut){
+    for(int i = index_row_cut; i < 4; ++i){
+        strcpy(log[i], log[i + 1]);
+    }
+    strcpy(log[4], ""); // Clear the last row
+}
+
 void ex3(){
-    int m, n;
-    printf("Enter number of rows: ");
-    scanf("%d", &m);
-    printf("Enter number of columns: ");
-    scanf("%d", &n);
-    
-    int arr[m][n];
-    
-    // Input array
-    printf("Enter array elements:\n");
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            printf("arr[%d][%d] = ", i, j);
-            scanf("%d", &arr[i][j]);
-        }
-    }
-    
-    printf("Original array:\n");
-    for(int i = 0; i < m; i++){
-        for(int j = 0; j < n; j++){
-            printf("%d ", arr[i][j]);
-        }
-        printf("\n");
-    }
-    
-    printf("Array after removing odd rows (keeping even rows only):\n");
-    for(int i = 0; i < m; i++){
-        if(i % 2 == 0){ // Keep only even indexed rows (0, 2, 4, ...)
-            for(int j = 0; j < n; j++){
-                printf("%d ", arr[i][j]);
-            }
-            printf("\n");
-        }
-    }
+   char log[5][50] = {
+       "Row 0: This is the first row.",
+       "Row 1: This is the second row.",
+       "Row 2: This is the third row.",
+       "Row 3: This is the fourth row.",
+       "Row 4: This is the fifth row."
+   };
+   int index_row_cut;
+    printf("Enter number of characters to cut from index_row_cut: ");
+    scanf("%d", &index_row_cut);
+
+   cut_row(log, index_row_cut);
+   
+   printf("Array after cutting row %d:\n", index_row_cut);
+   for(int i = 0; i < 5; i++){
+       if(strlen(log[i]) > 0){ // Print only non-empty rows
+           printf("%s\n", log[i]);
+       }
+   }    
+
 }
 
 // Exercise 4: Write program to input names of 5 people (store in 2D array ten[5][50]) 
@@ -179,8 +182,8 @@ int main(int argc, char const *argv[])
 {
     // ex1(); // Call function to find min/max in 2D array
     // ex2(); // Call function to change primes to 0
-    // ex3(); // Call function to cut odd rows
-    ex4(); // Call function to sort names alphabetically
+    ex3(); // Call function to cut odd rows
+    // ex4(); // Call function to sort names alphabetically
     
     getchar(); // Wait for user input before exiting
     return 0;
