@@ -8,12 +8,12 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "*.c", // Build tất cả file .c trong thư mục hiện tại
                 "-o",
-                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"  // ← Đổi thành \\ cho Windows
+                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}" // Đặt thư mục làm việc là thư mục chứa file đang mở
             },
             "problemMatcher": [
                 "$gcc"
@@ -28,12 +28,12 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${file}",
+                "*.c", // Build tất cả file .c trong thư mục hiện tại
                 "-o",
-                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"  // ← Thay đổi dòng này
+                "${workspaceFolder}\\bin\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
-                "cwd": "${fileDirname}"
+                "cwd": "${fileDirname}" // Đặt thư mục làm việc là thư mục chứa file đang mở
             },
             "problemMatcher": [
                 "$gcc"
